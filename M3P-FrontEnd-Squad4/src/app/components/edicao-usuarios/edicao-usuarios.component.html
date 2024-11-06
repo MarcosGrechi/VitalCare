@@ -1,0 +1,96 @@
+<form id="form-container" [formGroup]="userForm" (ngSubmit)="salvarUsuario()">
+
+  <mat-form-field class="form-group">
+    <mat-label>Nome Completo</mat-label>
+    <input
+    matInput
+    type="text"
+    id="nome"
+    formControlName="nome"
+    minlength="8"
+    maxlength="64"
+    required>
+    <mat-error *ngIf="userForm.get('nome')?.hasError('required')">
+      Nome completo é obrigatório
+    </mat-error>
+    <mat-error *ngIf="userForm.get('nome')?.hasError('minlength')">
+      Nome completo deve ter no mínimo 8 caracteres
+    </mat-error>
+    <mat-error *ngIf="userForm.get('nome')?.hasError('maxlength')">
+      Nome completo deve ter no máximo 64 caracteres
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>E-mail</mat-label>
+    <input
+    matInput
+    type="email"
+    id="email"
+    formControlName="email"
+    autocomplete="email">
+    <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+      E-mail é obrigatório
+    </mat-error>
+    <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+      E-mail inválido
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>CPF</mat-label>
+    <input
+    matInput
+    type="text"
+    id="cpf"
+    formControlName="cpf"
+    mask="000.000.000-00"
+    placeholder="000.000.000-00"
+    required>
+    <mat-error *ngIf="userForm.get('cpf')?.hasError('required')">
+      CPF é obrigatório
+    </mat-error>
+    <mat-error *ngIf="userForm.get('cpf')?.hasError('cpfInvalid')">
+      CPF inválido
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>Data de Nascimento</mat-label>
+    <input
+    matInput
+    type="text"
+    id="dataNascimento"
+    mask="00/00/0000"
+    formControlName="dataNascimento"
+    placeholder="dd/mm/aaaa"
+    required>
+    <mat-error *ngIf="userForm.get('dataNascimento')?.hasError('required')">
+      Data de nascimento é obrigatória
+    </mat-error>
+    <mat-error *ngIf="userForm.get('dataNascimento')?.hasError('dataNascimentoInvalida')">
+      Data de nascimento inválida ou no futuro
+    </mat-error>
+  </mat-form-field>
+     
+  <mat-form-field class="form-group">
+    <mat-label>Telefone</mat-label>
+    <input
+    matInput
+    type="tel"
+    mask="(00)00000-0000"
+    id="telefone"
+    formControlName="telefone"
+    placeholder="(99)99999-9999"
+    required>
+    <mat-error *ngIf="userForm.get('telefone')?.hasError('required')">
+      Telefone é obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <div class="buttons-container">
+    <button mat-raised-button class="btn btn-open-dialog"type="submit" class="edit-button">Salvar</button>
+    <button mat-raised-button class="btn btn-open-dialog" type="button" class="delete-button" (click)="deletarUsuario()">Deletar</button>
+  </div>
+
+</form>

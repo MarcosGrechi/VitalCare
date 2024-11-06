@@ -1,0 +1,55 @@
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  // background-color: #f0ecf9;
+  color: #f44336;
+  height: 56px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+
+  h1 {
+    margin: 0;
+    font-weight: lighter;
+    font-size: 20px;
+    letter-spacing: 0.25em;  }
+  }
+
+.cards-container {
+  display: flex;
+  gap: 30px;
+}
+
+.title-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-card {
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  flex: 1;
+  justify-content: space-around;
+
+  .profile-icon {
+    font-size: 100px;
+    height: 100px;
+    width: 100px;
+    color: #23143e;
+  }
+
+  mat-card-title {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+
+  mat-card-subtitle {
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: light;
+    letter-spacing: .5em;
+  }
+}

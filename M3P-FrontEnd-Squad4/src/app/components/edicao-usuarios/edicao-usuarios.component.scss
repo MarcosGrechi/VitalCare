@@ -1,0 +1,70 @@
+#form-container {
+  max-width: 800px;
+
+}
+
+h3 {
+  font-weight: lighter;
+  color: #b0b0b0;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
+}
+
+.form-group {
+  width: calc(50% - 10px);
+  margin-right: 10px; 
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  mat-label {
+    font-weight: bold;
+  }
+  
+  input.mat-input,
+  mat-select,
+  textarea.mat-input {
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+.textarea {
+  width: calc(100% - 16px); // Calcula a largura para ocupar duas colunas com espaçamento
+  height: 120px;
+}
+
+.textarea:last-child {
+  margin-right: 0;
+}
+
+// Adicionando um estilo para a largura do botão
+button[type="submit"] {
+  width: 100%;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  button {
+    margin-top: 16px;
+    width: calc(50% - 10px);
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .infos-rg {
+    margin-bottom: 30px;
+  }
+}

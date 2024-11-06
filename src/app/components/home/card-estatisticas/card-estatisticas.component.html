@@ -1,0 +1,39 @@
+<div class="title-container">
+  <h1>ESTATÍSTICAS DO SISTEMA</h1>
+</div>
+
+<div class="cards-container">
+  <mat-card class="example-card">
+    <div class="title-icon-container">
+      <mat-icon class="profile-icon">people</mat-icon>
+      <mat-card-title>{{ quantidadePacientes }}</mat-card-title>
+    </div>
+    <mat-card-subtitle>pacientes</mat-card-subtitle>
+  </mat-card>
+  
+  
+  <mat-card class="example-card">
+    <div class="title-icon-container">
+      <mat-icon class="profile-icon">assignment</mat-icon>
+      <mat-card-title>{{ quantidadeConsultas }}</mat-card-title>
+    </div>
+    <mat-card-subtitle>consultas</mat-card-subtitle>
+  </mat-card>
+  
+  <mat-card class="example-card">
+    <div class="title-icon-container">
+      <mat-icon class="profile-icon">show_chart</mat-icon>
+      <mat-card-title>{{ quantidadeExames }}</mat-card-title>
+    </div>
+    <mat-card-subtitle>exames</mat-card-subtitle>
+  </mat-card>
+
+  <mat-card *ngIf="profile === 'admin'" class="example-card" >
+    <div class="title-icon-container">
+      <mat-icon class="profile-icon">account_circle</mat-icon>
+      <mat-card-title>{{ quantidadeUsuarios }}</mat-card-title>
+    </div>
+    <mat-card-subtitle>usuários</mat-card-subtitle>
+  </mat-card>
+
+</div>  

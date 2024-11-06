@@ -1,0 +1,53 @@
+<mat-sidenav-container *ngIf="loggedUser">
+  <mat-sidenav opened mode="side">
+    <div class="sidenav-header">
+      <div class="app-name">
+        VitalCare
+        <div class="by-text">by</div>
+      </div>
+      <img id="logo" src="../../../assets/img/labmedical_white.svg" alt="logo-labmed">
+    </div>
+    
+    <div class="sections-container">
+      <!-- Menu para todos os perfis -->
+      <mat-nav-list class="sidenav">
+        <h3 matListItemTitle>Geral</h3>
+        <mat-list>
+          <button mat-flat-button routerLink="/home"><mat-icon matListItemIcon>home</mat-icon>Início</button><br>
+          <button mat-flat-button (click)="removeLoggedUser()"><mat-icon matListItemIcon>logout</mat-icon>Sair</button>
+        </mat-list>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <!-- Mostrar a seção de "Usuários" apenas se o perfil for 'admin' -->
+      <mat-nav-list *ngIf="profile === 'admin'" class="sidenav">
+        <h3 matListItemTitle>Usuários</h3>
+        <mat-list>
+          <button mat-flat-button routerLink="/usuarios"><mat-icon matListItemIcon>list</mat-icon>Listar Usuários</button>
+        </mat-list>
+      </mat-nav-list>
+
+      <mat-divider *ngIf="profile === 'admin'"></mat-divider>
+
+      <!-- Mostrar seções de Pacientes e Exames para 'medico' e 'admin' -->
+      <mat-nav-list *ngIf="profile === 'médico' || profile === 'admin'" class="sidenav">
+        <h3 matListItemTitle>Pacientes</h3>
+        <mat-list>
+          <button mat-flat-button routerLink="/cadastro-paciente"><mat-icon matListItemIcon>add</mat-icon>Cadastrar paciente</button><br>
+          <button mat-flat-button routerLink="/listagem-prontuario"><mat-icon matListItemIcon>list</mat-icon>Listar prontuário</button>
+        </mat-list>
+      </mat-nav-list>
+
+      <mat-divider *ngIf="profile === 'médico' || profile === 'admin'"></mat-divider>
+
+      <mat-nav-list *ngIf="profile === 'médico' || profile === 'admin'" class="sidenav">
+        <h3 matListItemTitle>Exames</h3>
+        <mat-list>
+          <button mat-flat-button routerLink="/cadastro-consulta"><mat-icon matListItemIcon>add</mat-icon>Cadastrar consulta</button><br>
+          <button mat-flat-button routerLink="/cadastro-exames"><mat-icon matListItemIcon>add</mat-icon>Cadastrar exame</button>
+        </mat-list>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

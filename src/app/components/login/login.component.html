@@ -1,0 +1,35 @@
+<div class="form-container">
+  
+  <h1 class="app-title">VitalCare</h1>
+  
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    
+    <h2 mat-dialog-title class="login-title">Login</h2>
+    
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email">
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        Email é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+        Email inválido.
+      </mat-error>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input matInput formControlName="password" type="password">
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Senha é obrigatória.
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        A senha deve ter pelo menos 8 caracteres.
+      </mat-error>
+    </mat-form-field><br>
+  </form>
+
+  <a class="forgot-password-link" (click)="forgotPassword()">Esqueceu a senha?</a>
+  <button mat-flat-button color="primary" class="btn-submit" (click)="login()">Entrar</button><br>
+  <button mat-raised-button class="btn btn-open-dialog" (click)="openDialog()">Criar conta</button><br>
+</div>

@@ -1,0 +1,18 @@
+<mat-toolbar *ngIf="loggedUser" class="mat-elevation-z3">
+  <h1>{{ pageTitle }}</h1>
+  <div class="profile-container">
+    <h3>{{ loggedUser.nome || loggedUser.email }}</h3>
+    <button
+      mat-icon-button
+      aria-label="Editar usuário"
+      matTooltip="Editar usuário"
+      matTooltipPosition="above"
+      matTooltipShowDelay="500"
+      matTooltipHideDelay="100"
+      (click)="editarUsuario(loggedUser)"
+      class="btn-profile"
+      >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

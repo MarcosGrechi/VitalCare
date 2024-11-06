@@ -1,0 +1,181 @@
+<form id="form-container" [formGroup]="pacienteForm" (ngSubmit)="cadastrarPaciente()" >
+  <mat-form-field class="form-group">
+    <mat-label>Nome Completo</mat-label>
+    <input matInput type="text" id="nomeCompleto" formControlName="nomeCompleto" required minlength="8" maxlength="64">
+    <mat-error *ngIf="pacienteForm.get('nomeCompleto')?.invalid && pacienteForm.get('nomeCompleto')?.touched">
+      Por favor, insira um nome válido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Gênero</mat-label>
+    <select matNativeControl formControlName="genero" required>
+      <option value="">Selecione...</option>
+      <option value="masculino">Masculino</option>
+      <option value="feminino">Feminino</option>
+      <option value="outro">Outro</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput type="date" id="dataNascimento" formControlName="dataNascimento" required>
+    <mat-error *ngIf="pacienteForm.get('dataNascimento')?.invalid && pacienteForm.get('dataNascimento')?.touched">
+      Por favor, insira uma data de nascimento válida.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>CPF</mat-label>
+    <input matInput type="text" id="cpf" formControlName="cpf" [mask]="'000.000.000-00'" placeholder="000.000.000-00" required>
+    <mat-error *ngIf="pacienteForm.get('cpf')?.invalid && pacienteForm.get('cpf')?.touched">
+      CPF inválido. Utilize o formato 000.000.000-00.
+    </mat-error>
+  </mat-form-field>
+  
+  <section class="infos-rg section-info">
+    <h3 class="section-title">RG</h3>
+    <mat-form-field class="form-group">
+      <mat-label>Número de RG</mat-label>
+      <input matInput type="text" id="rg" formControlName="rg" maxlength="20" mask="0000000||00000000||000000000" placeholder="digite apenas os números" required>
+      <mat-error *ngIf="pacienteForm.get('rg')?.invalid && pacienteForm.get('rg')?.touched">
+        Por favor, insira um número de RG válido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group">
+      <mat-label>Órgão Expedidor</mat-label>
+      <input matInput type="text" id="orgaoExpedidor" formControlName="orgaoExpedidor" maxlength="20" required>
+      <mat-error *ngIf="pacienteForm.get('orgaoExpedidor')?.invalid && pacienteForm.get('orgaoExpedidor')?.touched">
+        Por favor, insira um órgão expedidor válido.
+      </mat-error>
+    </mat-form-field>
+  </section>
+    
+    
+  <mat-form-field class="form-group">
+    <mat-label>Estado Civil</mat-label>
+    <select matNativeControl formControlName="estadoCivil" required>
+      <option value="">Selecione...</option>
+      <option value="solteiro">Solteiro(a)</option>
+      <option value="casado">Casado(a)</option>
+      <option value="divorciado">Divorciado(a)</option>
+      <option value="viuvo">Viúvo(a)</option>
+      <option value="outro">Outro</option>
+    </select>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>Telefone</mat-label>
+    <input matInput type="tel" id="telefone" formControlName="telefone" [mask]="'(00) 00000-0000'" placeholder="(99) 99999-9999" required>
+    <mat-error *ngIf="pacienteForm.get('telefone')?.invalid && pacienteForm.get('telefone')?.touched">
+      Telefone inválido. Utilize o formato (99) 99999-9999.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>E-mail</mat-label>
+    <input matInput type="email" id="email" formControlName="email" autocomplete="nope" required>
+    <mat-error *ngIf="pacienteForm.get('email')?.invalid && pacienteForm.get('email')?.touched">
+      Por favor, insira um e-mail válido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Naturalidade</mat-label>
+    <input matInput type="text" id="naturalidade" formControlName="naturalidade" required minlength="8" maxlength="64">
+  </mat-form-field>
+  
+  <mat-form-field class="form-group">
+    <mat-label>Contato de Emergência</mat-label>
+    <input matInput type="tel" id="contatoEmergencia" formControlName="contatoEmergencia" [mask]="'(00) 00000-0000'" placeholder="(99) 99999-9999" required>
+    <mat-error *ngIf="pacienteForm.get('telefone')?.invalid && pacienteForm.get('telefone')?.touched">
+      Telefone inválido. Utilize o formato (99) 99999-9999.
+    </mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group textarea">
+    <mat-label>Lista de Alergias</mat-label>
+    <textarea matInput id="alergias" formControlName="alergias"></textarea>
+  </mat-form-field>
+  
+  <mat-form-field class="form-group textarea">
+    <mat-label>Lista de Cuidados Específicos</mat-label>
+    <textarea matInput id="cuidadosEspecificos" formControlName="cuidadosEspecificos"></textarea>
+  </mat-form-field>
+
+  
+  <section class="section-info">
+    <h3 class="section-title">CONVÊNIO</h3>
+    <mat-form-field class="form-group">
+      <mat-label>Nome do Convênio</mat-label>
+      <input matInput type="text" id="convenio" formControlName="convenio">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label class="form-group">Número do Convênio</mat-label>
+      <input matInput type="text" id="numeroConvenio" formControlName="numeroConvenio">
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label class="form-group">Validade do Convênio</mat-label>
+      <input matInput type="date" id="validadeConvenio" formControlName="validadeConvenio">
+    </mat-form-field>
+  
+  </section>
+  
+
+  <section class="infos-endereco section-info">
+   <h3 class="section-title">ENDEREÇO</h3>
+    <mat-form-field class="form-group">
+      <mat-label>CEP</mat-label>
+      <input matInput type="text" id="cep" formControlName="cep" (input)="consultaCEP()">
+      <mat-error *ngIf="pacienteForm.get('cep')?.touched && pacienteForm.get('cep')?.hasError">
+        Somente números. Obrigatório.
+      </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form-group readonly">
+      <mat-label>Cidade</mat-label>
+      <input matInput readonly type="text" id="cidade" formControlName="cidade" [value]="endereco ? endereco.localidade : ''">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group readonly">
+      <mat-label>Estado</mat-label>
+      <input matInput readonly type="text" id="estado" formControlName="estado" [value]="endereco ? endereco.uf : ''">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group readonly">
+      <mat-label>Rua</mat-label>
+      <input matInput readonly type="text" id="logradouro" formControlName="logradouro" [value]="endereco ? endereco.logradouro : ''">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group">
+      <mat-label>Número</mat-label>
+      <input matInput type="text" id="numero" formControlName="numero">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group readonly">
+      <mat-label>Complemento</mat-label>
+      <input matInput type="text" id="complemento" formControlName="complemento">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group readonly">
+      <mat-label>Bairro</mat-label>
+      <input matInput readonly type="text" id="bairro" formControlName="bairro" [value]="endereco ? endereco.bairro : ''">
+    </mat-form-field>
+  
+    <mat-form-field class="form-group">
+      <mat-label>Ponto de Referência</mat-label>
+      <input matInput type="text" id="pontoReferencia" formControlName="pontoReferencia">
+    </mat-form-field>
+  </section>
+
+
+  <div class="buttons-container">
+    <button mat-button type="button" class="edit-button" [disabled]="!pacienteId" (click)="editarPaciente()">Salvar edição</button>
+    <button mat-button type="button" class="delete-button" [disabled]="!pacienteId" (click)="deletarPaciente()">Deletar</button>
+    <button mat-raised-button type="submit" class="save-button" [disabled]="!pacienteForm.valid">Salvar</button>
+  </div>
+
+</form>

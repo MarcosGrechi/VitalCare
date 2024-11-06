@@ -1,0 +1,72 @@
+mat-sidenav {
+  background-color: #673ab7;
+
+}
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sections-container .sidenav {
+  margin-bottom: 16px;
+}
+
+mat-sidenav-container {
+
+  text-align: center;
+  z-index: 5;
+  height: calc(100vh);
+  position: fixed;
+  width: 250px;
+  
+  #logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sidenav-header {
+    padding-top: 24px;
+    text-align: center;
+
+    .app-name {
+      font-size: 32px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      margin-bottom: 8px; /* Espaçamento entre o nome e o logo */
+      color: #ffffff; /* Cor do texto */
+
+      .by-text {
+        font-size: 14px;
+        font-weight: normal;
+        color: #ffffff; /* Cor do texto */
+      }
+    }
+  }
+  
+  button{
+    width: calc(100% - 64px);
+    margin-bottom: 8px;
+    text-align: left;
+    letter-spacing: 0;
+    // background-color: #f5f5f5;
+  }
+
+  h3 {
+  color: #b9b9b9;
+  margin: 0;
+  font-weight: light;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  }
+
+mat-sidenav {
+  width: 100%;
+}
+
+mat-divider {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+}

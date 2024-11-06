@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="buscar-paciente">
+    <mat-form-field appearance="fill" class="input-busca">
+      <mat-label>Buscar paciente</mat-label>
+        <input id="input-busca" matInput placeholder="Buscar por nome ou por registro" type="text" [(ngModel)]="textoPesquisa">
+      </mat-form-field>
+      <button mat-flat-button color="primary" (click)="pesquisarPacientes(textoPesquisa)">
+        <mat-icon matSuffix>search</mat-icon>
+        Buscar
+      </button>
+  </div>
+
+  <table mat-table [dataSource]="pacientes" class="mat-elevation-z2">
+
+    <ng-container matColumnDef="registro">
+      <th mat-header-cell *matHeaderCellDef> Id do Paciente </th>
+      <td mat-cell *matCellDef="let paciente"> {{ paciente.id }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nomePaciente">
+      <th mat-header-cell *matHeaderCellDef> Nome do Paciente </th>
+      <td mat-cell *matCellDef="let paciente"> {{ paciente.nome }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="convenio">
+      <th mat-header-cell *matHeaderCellDef> Convênio </th>
+      <td mat-cell *matCellDef="let paciente"> {{ paciente.convenio }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let paciente" class="coluna-acao">
+        <button mat-icon-button color="primary" (click)="editarPaciente(paciente.id)" class="item-info-btn">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" aria-label="Acessar Prontuário" (click)="acessarProntuario(paciente)">
+          <mat-icon>assignment</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let paciente; columns: displayedColumns;"></tr>
+  </table>
+  
+  
+</div>

@@ -1,0 +1,27 @@
+<app-card-estatisticas 
+  [quantidadePacientes]="quantidadePacientes"
+  [quantidadeExames]="quantidadeExames"
+  [quantidadeConsultas]="quantidadeConsultas"
+  [quantidadeUsuarios]="quantidadeUsuarios">
+</app-card-estatisticas>
+
+<div class="title-container">
+  <h1>INFORMAÇÕES RÁPIDAS DE PACIENTES</h1>
+</div>
+
+<div class="buscar-pacientes">
+  <mat-form-field appearance="fill" class="input-busca">
+    <mat-label>Buscar paciente</mat-label>
+    <input matInput placeholder="Buscar por nome, telefone ou email" type="text" [(ngModel)]="textoPesquisa">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="pesquisarPacientes(textoPesquisa)">
+    <mat-icon matSuffix>search</mat-icon>
+    Buscar
+  </button>
+</div>
+
+<div class="cards-container">
+  <ng-container *ngFor="let paciente of pacientes">
+    <app-card-info-pacientes [paciente]="paciente"></app-card-info-pacientes>
+  </ng-container>
+</div>

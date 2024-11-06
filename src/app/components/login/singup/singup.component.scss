@@ -1,0 +1,17 @@
+.mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: calc(100%); // Calcula a largura dos botões para ser igual à largura dos campos de entrada (considerando o padding)
+  margin-bottom: 10px;
+}
+
+.cadastro-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  text-align: center;
+  
+}
